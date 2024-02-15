@@ -1,68 +1,16 @@
-networks
+How would your road network respond to coastal flooding?
 ==============================
 
-Demo for network analysis
+This repository contains the source code for a Streamlit application that assesses the vulnerability of road networks to coastal flooding. The process includes:
+
+1. Extracting the road network for a chosen city from OpenStreetMap.
+2. Determining the elevation for each node (intersection).
+3. Sequentially removing nodes based on elevation (from lowest to highest), simulating a simplified “bathtub” flooding model.
+4. Evaluating the network's connectivity after each node's removal to identify the critical node, whose elimination leads to the network's total disconnection.
+
+This approach, though streamlined, is supported by peer-reviewed research ([Aldabet et al., 2022](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2021EF002581) and serves as a preliminary tool for analysis. It offers a straightforward and effective way to explore the resilience of road systems in the face of extreme flood events, leveraging open-access datasets and methodologies.
 
 --------
 
-## Setup
 
-### The environment
 
-To run the notebooks you need to create an environment with the dependencies. There are two options:
-
-#### Docker
-
-If you have [docker](https://docs.docker.com/engine/install/) in your system,
-you run a jupyter lab server with:
-
-``` bash
-docker compose up --build
-```
-
-And if you want to get into the container, use a terminal in jupyter lab,
-vscode remote development or run this command:
-
-```shell
-docker exec -it networks_notebooks /bin/bash
-```
-
-#### Conda environment
-
-Create the environment with:
-
-``` bash
-mamba env create -n networks -f environment.yml
-```
-
-This will create an environment called networks with a common set of dependencies.
-
-### `git` (if needed) and pre-commit hooks
-
-If this project is a new and standalone (not a module in a bigger project), you need to initialize git:
-
-``` bash
-git init
-```
-
-If the project is already in a git repository, you can skip this step.
-
-To install the **pre-commit hooks**, with the environment activated and in the project root directory, run:
-
-``` bash
-pre-commit install
-```
-
-## Update the environment
-
-If you need to update the environment installing a new package, you simply do it with:
-
-``` bash
-mamba install [package]  # or `pip install [package]` if you want to install it via pip
-```
-
-then update the environment.yml file so others can clone your environment with:
-
-``` bash
-mamba env export --no-builds -f environment.yml
-```

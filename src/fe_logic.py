@@ -1,9 +1,9 @@
 import streamlit as st
 from streamlit_folium import st_folium
 from src.network_analysis import NetworkExtractor, ElevationUpdater, NetworkAnalyzer
-from src.map_plotting import NetworkPlotter, CriticalPlot
+from src.map_plotting import NetworkPlotter, CriticalPlotter
 
-
+# Extract network and update elevation data
 def load_network(city_name):
     try:
         with st.spinner('Extracting road network...'):
@@ -20,23 +20,24 @@ def load_network(city_name):
         st.error(f"Failed to load network: {str(e)}")
         return None
 
+# Plot the network
 def plot_network(network_with_elevation, city_name):
     st.markdown(f"### Road network of {city_name}", unsafe_allow_html=True)
     plotter = NetworkPlotter(network_with_elevation)
-    folium_map = plotter.plot_network_with_elevation()  # This now returns a folium.Map object
-    # Use st_folium to display the folium map
+    folium_map = plotter.plot_network_with_elevation()  
     st_folium(folium_map, width=725, height=500)
 
+# Analyze the network
 def analyze_network(network_with_elevation):
     analyzer = NetworkAnalyzer(network_with_elevation)
     analyzer.analyze_network()
     return analyzer
 
+# Plot network analysis
 def plot_network_critical(analyzer):
     st.markdown("### Road network analysis", unsafe_allow_html=True)
-    critical_plotter = CriticalPlot(analyzer.G, analyzer.nodes_removed, analyzer.critical_elevation)
-    folium_map = critical_plotter.prepare_and_plot()  # Use the plotting functionality
+    critical_plotter = CriticalPlotter(analyzer.G, analyzer.nodes_removed, analyzer.critical_elevation)
+    folium_map = critical_plotter.prepare_and_plot()
     
-    # Check if a folium map object is returned and display it using Streamlit
     if folium_map:
         st_folium(folium_map, width=725, height=500)

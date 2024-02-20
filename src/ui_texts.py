@@ -31,15 +31,14 @@ def display_network_info(city_name, num_nodes):
 def display_analysis_info(analyzer, city_name):
     st.markdown(f"""<span style='font-size: 18px;'>The susceptibility of a network to disruptions is often assessed by 
                 removing nodes and analyzing how the remaining network functions. As nodes are progressively eliminated, 
-                traveling between different areas of the network can become impractical or require significantly longer travel times. 
-                The network reaches a tipping point when the removal of a single node causes a complete disconnection of the network. 
+                traveling between different areas of the network can become challenging or even impossible. 
+                The network reaches a tipping point when the removal of a single node causes the disconnection of a significant part of the network. 
                 Here, the critical node is identified by sequentially removing nodes, beginning with those at lower elevations, 
                 under the assumption that they are more susceptible to flooding.""", unsafe_allow_html=True)
     
     st.markdown(f"""<span style='font-size: 18px;'>In the case of <span style='font-size: 18px; color: #ffe599;'>{city_name}</span>, 
-                the <span style='font-size: 18px; color: #cc0000;'><b>critical node</b></span> is found at an elevation of 
-                <span style='font-size: 20px; color: #cc0000;'><b>{analyzer.critical_elevation}</b></span> meters above sea level.
-                This point marks the limit beyond which the system ceases to operate as a cohesive network,
+                the critical node is found at an elevation of <span style='font-size: 20px; color: #cc0000;'><b>{analyzer.critical_elevation}</b></span> 
+                meters above sea level. This point marks the limit beyond which the system ceases to operate as a cohesive network,
                 which occurs after the removal of <span style='font-size: 18px; color: #ffe599;'>{analyzer.perc_nodes_removed:.0f}%</span> 
                 nodes. Networks that have their critical nodes at lower elevations are generally more susceptible to the effects of coastal flooding. 
                 Conversely, a critical node located at a higher elevation suggests a lesser vulnerability to flooding. 

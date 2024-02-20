@@ -8,11 +8,11 @@ This repository contains the source code for a Streamlit application that assess
 3. Sequentially removing nodes based on elevation (from lowest to highest), simulating a simplified “bathtub” flooding scenario.
 4. Evaluating the network's connectivity after each node's removal to identify the critical node, whose elimination leads to the network's total disconnection.
 
-This method, grounded in peer-reviewed research ([Aldabet et al., 2022](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2021EF002581), provides a computationally effective way to explore the resilience of road networks to extreme flooding, assuming that topography is a key control on flood susceptibility. Identifying critical nodes that could trigger significant network disruptions can guide coastal management and planning efforts, facilitating the development of adaptive strategies to address the dynamic challenges posed by coastal threats.
+This method, grounded in peer-reviewed research ([Aldabet et al., 2022](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2021EF002581)), provides a computationally effective way to explore the resilience of road networks to extreme flooding, assuming that topography is a key control on flood susceptibility. Identifying critical nodes that could trigger significant network disruptions can guide coastal management and planning efforts, facilitating the development of adaptive strategies to address the dynamic challenges posed by coastal threats.
 
 
 --------
 
 ## Set up
-To run this application locally, set up your python environment using the environment.yml file included. If you have an OpenAI API Key, you can activate specific lines in app.py to incorporate AI-generated background details about your selected city.
+To run this application locally, set up your python environment using the environment.yml file provided here. If you have an OpenAI API Key, you can activate specific lines in app.py to incorporate AI-generated background details about your selected city.
 

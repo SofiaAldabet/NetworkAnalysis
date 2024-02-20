@@ -2,7 +2,7 @@ import streamlit as st
 from dotenv import load_dotenv
 import os
 
-# Load the environment variables from .env file
+# Load the environment variables from .env file (to use the OpenAI API key)
 load_dotenv(".env")
 
 from src import ui_texts as ui
@@ -18,12 +18,10 @@ def main():
 
     explore_button_clicked = st.button("Explore Road Network")
 
-    # Store city name in session state only if button is clicked
+    # Store city name in session state only if button "Explore Road Network" is clicked
     if explore_button_clicked and city_name:
-        # Update the city name in session state
-        st.session_state.city_name = city_name
-        # Reset city info to force refetching if a new city is searched
-        st.session_state.city_info = None
+        st.session_state.city_name = city_name # Update the city name in session state
+        st.session_state.city_info = None  # Reset city info to force refetching if a new city is searched
     
     # # Fetch city information of city using openai (uncomment only if you have an API key stored in .env file)
     # if 'city_name' in st.session_state and st.session_state.city_name:
@@ -47,18 +45,18 @@ def main():
 
             analyze_network_clicked = st.button("Network Analysis")
             
-            # Perform network analysis if button is clicked
+            # Perform network analysis if button "Network Analysis" is clicked
             if analyze_network_clicked or 'analyzer' in st.session_state:
                 if 'analyzer' not in st.session_state:  
                     st.session_state.analyzer = fe.analyze_network(st.session_state.network_with_elevation)
-                
+
                 # Plot critical points on the network
                 fe.plot_network_critical(st.session_state.analyzer)
                 # Display analysis-related text
                 ui.display_analysis_info(st.session_state.analyzer, st.session_state.city_name)  
 
         
-        # Clear everything if the user clicks the button
+        # Clear everything if the user clicks the button 'Clear'
         if st.button('Clear'):
             st.session_state.clear()
             st.rerun()

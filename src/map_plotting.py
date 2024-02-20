@@ -64,7 +64,7 @@ class NetworkPlotter:
 
         return m
     
-class CriticalPlot:
+class CriticalPlotter:
 
     def __init__(self, network, nodes_removed, critical_elevation):
         self.G = network

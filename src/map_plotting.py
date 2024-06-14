@@ -11,6 +11,14 @@ class NetworkPlotter:
         # Convert the network into GeoDataFrames for nodes and edges
         nodes, edges = ox.graph_to_gdfs(self.network, nodes=True, edges=True)
 
+        # Ensure the elevation data is sorted and clean
+        if 'elevation' in nodes:
+            # Filter out any nodes with None elevation
+            nodes = nodes[nodes['elevation'].notnull()]
+            # Sort nodes by elevation
+            nodes = nodes.sort_values(by='elevation')
+
+
         # Find the center of the map
         x, y = nodes.unary_union.centroid.xy
         center = (y[0], x[0])
@@ -60,7 +68,7 @@ class NetworkPlotter:
         m.add_child(color_scale)
 
         # Add layer control to toggle visibility
-        folium.map.LayerControl('bottomleft', collapsed= False).add_to(m)
+        folium.map.LayerControl('bottomleft', collapsed=False).add_to(m)
 
         return m
     

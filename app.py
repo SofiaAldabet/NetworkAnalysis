@@ -23,12 +23,12 @@ def main():
         st.session_state.city_name = city_name # Update the city name in session state
         st.session_state.city_info = None  # Reset city info to force refetching if a new city is searched
     
-    # Fetch city information of city using openai (uncomment only if you have an API key stored in .env file)
-    if 'city_name' in st.session_state and st.session_state.city_name:
-        if 'city_info' not in st.session_state or st.session_state.city_info is None:
-            st.session_state.city_info = fetch_city_info(st.session_state.city_name)
-        if st.session_state.city_info:
-            ui.display_city_info(st.session_state.city_name, st.session_state.city_info)
+    # # Fetch city information of city using openai (uncomment only if you have an API key stored in .env file)
+    # if 'city_name' in st.session_state and st.session_state.city_name:
+    #     if 'city_info' not in st.session_state or st.session_state.city_info is None:
+    #         st.session_state.city_info = fetch_city_info(st.session_state.city_name)
+    #     if st.session_state.city_info:
+    #         ui.display_city_info(st.session_state.city_name, st.session_state.city_info)
 
     # Load and plot the network
     if 'city_name' in st.session_state and st.session_state.city_name:

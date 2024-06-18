@@ -18,7 +18,6 @@ class NetworkPlotter:
             # Sort nodes by elevation
             nodes = nodes.sort_values(by='elevation')
 
-
         # Find the center of the map
         x, y = nodes.unary_union.centroid.xy
         center = (y[0], x[0])

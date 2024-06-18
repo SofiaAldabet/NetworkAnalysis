@@ -6,14 +6,14 @@ def get_city_name_input():
 
 def display_intro():
     st.title("How would your road network respond to coastal flooding?")
-    st.markdown("""<span style='font-size: 18px;'>Roads are the backbone of our societies, allowing the movement
+    st.markdown("""<span style='font-size: 16px;'>Roads are the backbone of our societies, allowing the movement
                  of people and goods. However, many coastal towns, especially those at lower elevations, 
                 consistently experience infrastructure damage due to natural phenomena like storms and high tides. 
                 With the progression of climate change and the anticipated rise in sea levels, disruptions 
                 to these networks from coastal flooding are expected to become more frequent. Identifying key
                 locations in the network that might trigger significant disruptions can inform coastal management 
                 and planning efforts, facilitating the development of adaptive strategies to deal with coastal hazards.""", unsafe_allow_html=True)
-    st.markdown("""<span style='font-size: 18px;'>Enter the name of a <span style='font-size: 18px; color: #ffe599;'>coastal town</span>
+    st.markdown("""<span style='font-size: 20px;'>Enter the name of a <span style='font-size: 20px; color: #ffe599;'>coastal town</span>
                 to investigate the potential impact of coastal flooding on its road network.</span>""", unsafe_allow_html=True)
     
 
@@ -41,8 +41,9 @@ def display_analysis_info(analyzer, city_name):
                 meters above sea level. This point marks the limit beyond which the system ceases to operate as a cohesive network,
                 which occurs after the removal of <span style='font-size: 18px; color: #ffe599;'>{analyzer.perc_nodes_removed:.0f}%</span> 
                 nodes. Networks that have their critical nodes at lower elevations are generally more susceptible to the effects of coastal flooding. 
-                Conversely, a critical node located at a higher elevation suggests a lesser vulnerability to flooding. 
-                However, this approach predominantly considers topography as a critical factor influencing flood vulnerability. 
+                Conversely, a critical node located at a higher elevation suggests a lesser vulnerability to flooding.</span>""",
+                unsafe_allow_html=True)
+    st.markdown(f"""<span style='font-size: 18px;'>Note, however, that this approach predominantly considers topography as a critical factor influencing flood vulnerability. 
                 A more comprehensive analysis would need to account for additional criteria, such as flood likelihood, 
                 network's architecture, and existing flood defense systems.</span>""",
                 unsafe_allow_html=True)

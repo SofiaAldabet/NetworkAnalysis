@@ -1,5 +1,4 @@
 import streamlit as st
-import folium
 from streamlit_folium import st_folium
 from src.network_analysis import NetworkExtractor, ElevationUpdater, NetworkAnalyzer
 from src.map_plotting import NetworkPlotter, CriticalPlotter

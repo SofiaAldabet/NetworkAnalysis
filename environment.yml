@@ -489,7 +489,7 @@ dependencies:
       - osmnx==1.8.1
       - pydeck==0.8.1b0
       - streamlit==1.30.0
-      - streamlit-folium==0.18.0
+      - streamlit_folium==0.18.0
       - tenacity==8.2.3
       - tqdm==4.66.1
       - tzlocal==5.2

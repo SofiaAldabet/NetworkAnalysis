@@ -1,9 +1,8 @@
 # This file may be used to create an environment using:
 # $ conda create --name <env> --file <this file>
 # platform: osx-64
-folium==0.17.0
 streamlit==1.30.0
-streamlit_folium==0.18.0
+streamlit-folium==0.20.0
 osmnx==1.8.1
 openai==0.28.0
 requests==2.31.0

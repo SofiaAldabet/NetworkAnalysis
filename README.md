@@ -14,5 +14,14 @@ This method, grounded in peer-reviewed research ([Aldabet et al., 2022](https://
 --------
 
 ## Set up
-To run this application locally, set up your python environment using the environment.yml file provided here. If you have an OpenAI API Key, you can activate specific lines in app.py to incorporate AI-generated background details about your selected city.
+To run this application locally, you will need venv and python:
+
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
+    pip install -r requirements.txt
+    streamlit run app.py
+    ```
+
+If you have an OpenAI API Key, you can activate specific lines in app.py to incorporate AI-generated background details about your selected city.
 

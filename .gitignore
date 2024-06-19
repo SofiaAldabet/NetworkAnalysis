@@ -93,3 +93,5 @@ target/
 .tox
 
 .ruff_cache
+
+.streamlit/secrets.toml

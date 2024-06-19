@@ -1,8 +1,8 @@
+import streamlit as st
 import openai
-import os
 
 # Set the OpenAI API key from the environment variable
-openai.api_key = os.getenv('OPENAI_API_KEY')
+openai.api_key = st.secrets.openai["OPENAI_API_KEY"]
 
 def fetch_city_info(city_name, model="gpt-3.5-turbo", temperature=0):
     """

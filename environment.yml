@@ -482,6 +482,7 @@ dependencies:
       - altair==5.2.0
       - contextily==1.5.0
       - distro==1.9.0
+      - folium==0.14.0
       - geographiclib==2.0
       - geopy==2.4.1
       - jupyterlab-code-formatter==2.2.1
